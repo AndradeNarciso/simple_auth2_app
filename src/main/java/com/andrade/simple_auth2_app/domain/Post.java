@@ -11,8 +11,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -20,14 +22,15 @@ import lombok.Setter;
 @Builder
 @Getter 
 @Setter 
+@NoArgsConstructor
+@AllArgsConstructor
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long postId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long postId;
 
-    @Column(name = "post_from")
-    @ManyToOne
+  
     private User ownerPost;
 
     private String content;
