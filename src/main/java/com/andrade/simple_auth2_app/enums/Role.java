@@ -1,6 +1,6 @@
 package com.andrade.simple_auth2_app.enums;
 
-import lombok.Getter;
+
 
 
 public enum Role {
@@ -20,6 +20,6 @@ public enum Role {
     public void setId(long id) {
         this.id = id;
     };
-    public long getRole(){return this.id}
+    public long getRole(){return this.id;}
 
 }
