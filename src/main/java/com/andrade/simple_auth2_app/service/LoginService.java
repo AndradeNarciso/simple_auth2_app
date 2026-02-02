@@ -2,7 +2,6 @@ package com.andrade.simple_auth2_app.service;
 
 import java.time.Instant;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
@@ -26,7 +25,7 @@ public class LoginService {
     private final BCryptPasswordEncoder encoderPasswords;
     private final JwtEncoder jwtEncoder;
 
-    public UserLoginResponse encoder(UserLoginRequest userLoginRequest) throws BadCredencialException {
+    public UserLoginResponse login(UserLoginRequest userLoginRequest) throws BadCredencialException {
         User user = userRepository.findUserByEmail(userLoginRequest.email())
                 .orElseThrow(() -> new BadCredencialException("Invalid Credencial"));
 

@@ -4,22 +4,20 @@ package com.andrade.simple_auth2_app.enums;
 
 
 public enum Role {
-    ADMIN(1L),
-    REGULAR(2L);
+    ADMIN("ADMIN"),
+    REGULAR("USER");
 
-    private long id;
+    private String value;
 
-    Role(long id){
-        this.id=id;
+    Role(String value){
+        this.value=value;
     }
 
-    public long getId() {
-        return id;
+    public String getValue() {
+        return this.value;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    };
-    public long getRole(){return this.id;}
+  
+
 
 }

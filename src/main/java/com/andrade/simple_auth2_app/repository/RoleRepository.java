@@ -8,5 +8,5 @@ import com.andrade.simple_auth2_app.domain.Role;
 
 @Repository
 public interface  RoleRepository extends JpaRepository<Role,Long> {
-    
+    Role findByName(String name);
 }
