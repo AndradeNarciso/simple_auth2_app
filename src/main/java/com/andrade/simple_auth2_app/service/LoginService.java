@@ -43,7 +43,7 @@ public class LoginService {
 
         var jwt = jwtEncoder.encode(JwtEncoderParameters.from(claim));
 
-        return UserLoginResponse.builder().token(jwt.toString()).expireIn(expireAt).build();
+        return UserLoginResponse.builder().token(jwt.getTokenValue()).expireIn(expireAt).build();
     }
 
 }
