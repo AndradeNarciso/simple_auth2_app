@@ -29,4 +29,5 @@ public class Role {
     @Column(name = "role_value", nullable = false, unique = true)
     private String name;
 
+
 }

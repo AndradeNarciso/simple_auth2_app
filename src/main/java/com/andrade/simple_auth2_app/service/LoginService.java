@@ -1,6 +1,7 @@
 package com.andrade.simple_auth2_app.service;
 
 import java.time.Instant;
+import java.util.stream.Collectors;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
@@ -33,12 +34,15 @@ public class LoginService {
             throw new BadCredencialException("Invalid Credencial");
         }
 
+        var scope= user.getRoles().stream().map(role -> role.getName()).collect(Collectors.joining(" "));
+      
         Instant expireAt = Instant.now().plusSeconds(300);
         var claim = JwtClaimsSet.builder()
                 .issuer("Andrade")
                 .subject(user.getId().toString())
                 .expiresAt(expireAt)
                 .issuedAt(Instant.now())
+                .claim("scope", scope)
                 .build();
 
         var jwt = jwtEncoder.encode(JwtEncoderParameters.from(claim));

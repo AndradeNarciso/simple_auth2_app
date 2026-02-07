@@ -15,7 +15,7 @@ import com.andrade.simple_auth2_app.service.LoginService;
 
 import lombok.AllArgsConstructor;
 
-@RequestMapping("auth")
+@RequestMapping("/auth")
 @RestController
 @AllArgsConstructor
 public class LoginController {
