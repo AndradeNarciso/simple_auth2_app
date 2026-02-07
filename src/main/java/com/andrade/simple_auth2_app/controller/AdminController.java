@@ -14,15 +14,15 @@ import com.andrade.simple_auth2_app.service.AdminService;
 
 import lombok.AllArgsConstructor;
 
-@RequestMapping
-@RestController("/Admin")
+@RequestMapping("/admin")
+@RestController
 @AllArgsConstructor
 public class AdminController {
 
     private final AdminService adminService;
 
     @GetMapping("/get-all")
-   @PreAuthorize("hasAuthority=SCOPE_ADMIN")
+   @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
     public ResponseEntity<List<User>> getAllUser() {
         return ResponseEntity.status(HttpStatus.OK).body(adminService.getAllService());
     }
